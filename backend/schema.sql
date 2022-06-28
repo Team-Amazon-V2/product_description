@@ -7,5 +7,9 @@ CREATE TABLE product_specs (
     country VARCHAR,
     model_number VARCHAR,
     batteries VARCHAR,
-    date_available VARCHAR
+    date_available VARCHAR,
+    box_info text[]
     );
+
+    
+

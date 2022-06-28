@@ -2,10 +2,9 @@ require("dotenv").config();
 const express = require("express");
 const app = express();
 const port = 3008;
-const { Pool } = require('pg');
-const cors = require('cors')
 app.use(express.json());
-
+const { Pool } = require('pg');
+const cors = require('cors');
 app.use(cors());
 
 const pool = new Pool({
@@ -20,11 +19,12 @@ const pool = new Pool({
     port: process.env.DB_PORT,
   });
 
-//get all Question and answers 
-app.get ("/specs", async (req, res) => {
+//get all specs
+app.get ("/specs/:id", async (req, res) => {
+var id = req.params.id;
     try {
         let client = await pool.connect();
-        const data = await client.query('SELECT * FROM entries;')
+        const data = await client.query(`SELECT * FROM product_specs WHERE asin_id = '${id}';`);
         res.json(data.rows);
         client.release();
     }
@@ -35,3 +35,4 @@ app.get ("/specs", async (req, res) => {
 
 });
 
+app.listen(port, () => console.log(`Server is running on ${port}!`));
