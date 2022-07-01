@@ -19,7 +19,7 @@ const pool = new Pool({
     port: process.env.DB_PORT,
   });
 
-//get all specs
+//get specs by ASIN
 app.get ("/specs/:id", async (req, res) => {
 var id = req.params.id;
     try {

@@ -16,6 +16,7 @@ function App() {
  if (loading) {
   return <h1>Loading.....</h1>
  }
+
   return (
     <div className="tecspecTable">
       <h1 class="tableTitle">Technical Details</h1>
@@ -55,11 +56,13 @@ function App() {
       </table>
       
 <h2 class="box-info">Whats in the box</h2>
-<li class="box-item"><span>{specsData[0].box_info[0]} </span></li>
-<li class="box-item"><span>{specsData[0].box_info[1]} </span></li>
-<li class="box-item"><span>{specsData[0].box_info[2]} </span></li>
-
-
+{
+  specsData[0].box_info.map((elem) => {
+    return (
+      <li class="box-item"><span>{elem} </span></li>
+    )
+  })}
+  
     </div>
   );
 }
