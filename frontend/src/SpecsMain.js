@@ -1,7 +1,7 @@
-import './App.css';
+import './SpecsMain.css';
 import React, { useState, useEffect } from 'react';
 
-function App() {
+function SpecsMain() {
   const [specsData, setSpecsData] = useState([]);
   const [loading, setLoading] = useState(true);
 
@@ -67,4 +67,4 @@ function App() {
   );
 }
 
-export default App;
+export default SpecsMain;
